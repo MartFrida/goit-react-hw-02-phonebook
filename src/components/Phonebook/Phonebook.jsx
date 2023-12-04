@@ -14,9 +14,13 @@ export class Phonebook extends React.Component {
         <h2>Phonebook</h2>
         <form>
           <input type="text" name="name" required />
-          <butto>Add contact</butto>
+          <button>Add contact</button>
         </form>
-
+        <h2>Phonebook</h2>
+        <form>
+          <input type="text" name="name" required />
+          <button>Add contact</button>
+        </form>
       </>
     )
   }
