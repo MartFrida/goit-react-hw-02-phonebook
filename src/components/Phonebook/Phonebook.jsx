@@ -1,6 +1,9 @@
 import { nanoid } from 'nanoid';
 import React from 'react';
 import { StyledButton, StyledContactsList, StyledContactsSection, StyledContactsText, StyledInput, StyledPhonebook, StyledPhonebookForm, StyledWrapper } from './Phonebook.styled';
+import { FilterUsers } from 'components/FilterUsers/FilterUsers';
+import { ContactList } from 'components/ContactList/ContactList';
+import { ContactForm } from 'components/ContactForm/ContactForm';
 
 // додавання імені контакту та відображення списку контактів
 //   - створити компонент класу Phonebook
@@ -50,25 +53,18 @@ export class Phonebook extends React.Component {
   }
 
   render() {
-    const { name, number, filter, contacts } = this.state;
+    const { name, number, filter } = this.state;
     console.log(this.getFilteredContacts());
     const filteredContacts = this.getFilteredContacts();
     return (
       <StyledWrapper >
         <h2>Phonebook</h2>
-        <StyledPhonebook>
-          <StyledInput name="name" value={name} onChange={this.handleChangeInput} placeholder="Enter name" />
-          <StyledInput name='number' value={number} onChange={this.handleChangeInput} placeholder="Enter phone number" />
-          <StyledButton type='submit' onClick={this.handleSubmitAddUser}>Add contact</StyledButton>
-        </StyledPhonebook>
+        <ContactForm name={name} number={number} handleChangeInput={this.handleChangeInput} handleSubmitAddUser={this.handleSubmitAddUser} />
 
         <h2>Contacts</h2>
         <StyledContactsSection>
-          <StyledContactsText>Find contacts by name</StyledContactsText>
-          <StyledInput name='filter' value={filter} onChange={this.handleChangeInput} placeholder='Enter user name'></StyledInput>
-          <StyledContactsList>
-            {filteredContacts.map(user => <li key={user.id}> {user.name}:{user.number}</li>)}
-          </StyledContactsList>
+          <FilterUsers filter={filter} handleChangeInput={this.handleChangeInput} />
+          <ContactList filteredContacts={filteredContacts} />
         </StyledContactsSection>
 
       </StyledWrapper>

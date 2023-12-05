@@ -1,8 +1,9 @@
-export const FilterUsers = (contactsList) => {
+import { StyledContactsList, StyledContactsSection, StyledContactsText, StyledInput } from "components/Phonebook/Phonebook.styled"
+
+export const FilterUsers = ({ filter, handleChangeInput }) => {
   return (<>
-    <ul>
-      {contactsList.map(contact => <li key={contact.id}>{contact}</li>)}
-    </ul>
+    <StyledContactsText>Find contacts by name</StyledContactsText>
+    <StyledInput name='filter' value={filter} onChange={handleChangeInput} placeholder='Enter user name'></StyledInput>
 
   </>)
 }
