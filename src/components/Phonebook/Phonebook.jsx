@@ -51,6 +51,9 @@ export class Phonebook extends React.Component {
   getFilteredContacts = () => {
     return this.state.contacts.filter(contact => contact.name.toLowerCase().includes(this.state.filter.toLowerCase()))
   }
+  handleDeleteUser = (id) => {
+    this.setState(prevState => ({ contacts: prevState.contacts.filter(contact => contact.id !== id) }))
+  }
 
   render() {
     const { name, number, filter } = this.state;
@@ -64,7 +67,7 @@ export class Phonebook extends React.Component {
         <h2>Contacts</h2>
         <StyledContactsSection>
           <FilterUsers filter={filter} handleChangeInput={this.handleChangeInput} />
-          <ContactList filteredContacts={filteredContacts} />
+          <ContactList filteredContacts={filteredContacts} onDeleteUser={this.handleDeleteUser} />
         </StyledContactsSection>
 
       </StyledWrapper>
