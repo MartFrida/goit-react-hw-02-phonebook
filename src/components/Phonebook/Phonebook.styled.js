@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const StyledWrapper = styled.div`
 width:400px;
-        display: flex;
-        background-color: whitesmoke;
+    display: flex;
+    background-color: whitesmoke;
     padding: 30px;
-         margin:50px auto;
-     flex-direction: column;
+    margin:50px auto;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 `

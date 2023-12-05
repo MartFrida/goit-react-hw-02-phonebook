@@ -55,7 +55,6 @@ export class Phonebook extends React.Component {
         <h2>Contacts</h2>
         <ul>
           {contacts.map(user => <li key={user.id}> {user.name}:{user.number}</li>)}
-
         </ul>
       </StyledWrapper>
     )
