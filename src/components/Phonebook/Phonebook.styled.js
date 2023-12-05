@@ -25,7 +25,15 @@ export const StyledInput = styled.input`
     margin: 15px;
     padding:5px;
     `
-
 export const StyledButton = styled.button`
     padding:5px;
+    `
+export const StyledContactsSection = styled.div`
+    `
+export const StyledContactsText = styled.p`
+    margin:0;
+    `
+export const StyledContactsList = styled.ul`
+    margin:0;
+    padding:0;
     `
